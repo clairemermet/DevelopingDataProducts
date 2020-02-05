@@ -1,0 +1,66 @@
+---
+title: "DevelopingDataProducts_Week2_Assignment"
+author: "Claire Pierreclos"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Have aliens visited Earth? Take a look at these 9 bizarre sites found by alien hunters on Google Maps and judge for yourself ;-)
+First, we create a dataset with the data finding in this source website: <https://home.bt.com/tech-gadgets/internet/google-maps-alien-ufo-sightings-11364098331430>
+
+
+```{r include=FALSE}
+bizarreSets <- data.frame(
+  lng = c(-078.6726556,
+            139.4813889,
+            -119.5906639,
+            21.3021111,
+            -58.8298333,
+            -109.0750000,
+            -30.0886944,
+            100.9846667,
+            -36.1951306
+            ),
+    lat = c(-72.7204250,
+            36.1293333,
+            12.1337472,
+            45.7034444,
+            -34.2521667,
+            31.4452778,
+            -80.5690000,
+            -66.2733611,
+            -54.6623944
+            ),
+    label = c("The underwater alien base in Antarctica",
+              "The Martian structure 'identical' to a Japanese tomb",
+              "The underwater alien base",
+              "The spaceship in Romania",
+              "Entrance to alien base under floating island",
+              "UFO found in restricted part of Arizona",
+              "Crashed UFO in Antarctica",
+              "Flying saucer in Antarctica",
+              "UFO crash landing")
+)
+```
+
+```{r comment=""}
+bizarreSets 
+```
+
+## Leaflet map
+
+Please observe the sites on the map and don't hesitate to click on it to show the bizarre site on real ;-)
+
+```{r}
+library(leaflet)
+my_map <- leaflet() %>%
+  addTiles() %>%
+  addMarkers(lng=bizarreSets$lng, lat=bizarreSets$lat, label=bizarreSets$label)
+my_map
+```
