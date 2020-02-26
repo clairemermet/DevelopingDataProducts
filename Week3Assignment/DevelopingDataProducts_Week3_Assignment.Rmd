@@ -1,0 +1,33 @@
+---
+title: "DevelopingDataProducts_Week3_Assignment"
+author: "Claire Pierreclos"
+date: "2/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This is my web page presentation using R Markdown that features a plot created with Plotly. 
+My webpage is hosted on GitHub Pages. 
+My webpage contain the date that I created the document, and a plot created with Plotly. 
+This plot represent the number (in millions) of domestic animals in the United States in comparison with France for dogs, cats and mouses.
+
+## My plotly plot
+
+```{r include=TRUE}
+library(plotly)
+
+Animals <- c("Dogs", "Cats", "Mouses")
+UnitedStates <- c(80, 61, 23)
+France <- c(13, 8, 2)
+data <- data.frame(Animals, UnitedStates, France)
+
+p <- plot_ly(data, x = ~Animals, y = ~UnitedStates, type = 'bar', name = 'United States') %>%
+  add_trace(y = ~France, name = 'France') %>%
+  layout(yaxis = list(title = 'Count'), barmode = 'group', title = 'Number of domestic animals (in millions)')
+p
+```
