@@ -1,0 +1,44 @@
+---
+title: "CompressiveStrenghtSlides"
+author: "Claire Pierreclos"
+date: "3/9/2020"
+output: slidy_presentation
+---
+
+
+## Compressive Strenght Concrete Project
+
+In these slides, you will find my assignment work for the Developing Data Products course in the Data Science specialization on Coursera.
+
+I choose to use the example dataset concrete to plot the data and use some variables.
+
+## Concrete dataset
+
+What is the concrete dataset?
+Yeh (1998) describes a collection of data sets from different sources that can be used for modeling the compressive strength of concrete formulations as a functions of their ingredients and age.
+
+The data are from Yeh (1998) and taken from the UCI ML website <http://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength>.
+
+There are 1030 data points from the UCI website, but the paper states that approximately 1,000 samples were made, but only 727 were analyzed in the source material. It is unclear which samples were excluded.
+
+concrete	
+data frame of data with predictor columns Cement, BlastFurnaceSlag, FlyAsh, Water, Superplasticizer, CoarseAggregate, FineAggregate and Age with response column CompressiveStrength. These are the amounts.
+
+mixtures	
+The same data where all the ingredients have been converted to proportions of the total amounts.
+
+## Concrete contents
+
+```{r concrete, echo = TRUE}
+library(AppliedPredictiveModeling)
+data(concrete)
+summary(concrete)
+```
+
+## My shiny plot
+
+You can see my publish shiny plot here:
+<https://clairepierreclos.shinyapps.io/CompressiveStrengthConcrete/>
+
+```
+
